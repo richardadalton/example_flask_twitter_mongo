@@ -10,7 +10,8 @@
     <h1>Results</h1>
     <ul>
         {%for tweet in tweets%}
-        <li><a href="https://twitter.com/statuses/{{ tweet.id }}">{{ tweet.text }}</a></li>
+        <li><img src="{{ tweet.user.profile_image_url_https }}">
+            <a href="https://twitter.com/statuses/{{ tweet.id }}">{{ tweet.text }} - </a></li>
         {%endfor%}
     </ul>  
 </body>
