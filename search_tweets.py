@@ -4,5 +4,10 @@ from auth import get_api
 api = get_api()
 
 def search(query, count):
-    return [{'id': status.id, 'text': status.text} for status in tweepy.Cursor(api.search, q=query).items(count)]
+    api = get_api()
+    tweets = tweepy.Cursor(api.search, q=query).items(count)
     
+    tweets_list = []
+    for tweet in tweets:
+        tweets_list.append(tweet._json)
+    return tweets_list    
