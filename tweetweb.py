@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, request
-from search_tweets import search
+from search_tweets import search_tweets, stream_tweets
 from pymongo import MongoClient
 
 MONGODB_URI = os.environ.get("MONGODB_URI")
@@ -15,20 +15,25 @@ def get_index():
 @app.route("/results")
 def get_results():
     query = request.args.get('search')
-    
+    count = int(request.args.get('how_many'))
+    tweet_type = request.args.get('tweet_type')
+
     with MongoClient(MONGODB_URI) as conn:
         db = conn[MONGODB_NAME]
-        collection = db[query]
         collections_we_have = db.collection_names()
 
         # Search Twitter    
         if query in collections_we_have:
             #Get it from Mongo
-            tweets = collection.find()
+            tweets = db[query].find()
         else:
             #Get it from Twitter and save to Mongo
-            tweets = search(query, 10)
-            collection.insert_many(tweets)
+            if tweet_type == 'stream':
+                tweets = stream_tweets(query, count)
+            else:
+                x = 4 / 0
+                tweets = search_tweets(query, count)
+            db[query].insert_many(tweets)
     
     return render_template('results.html', tweets=tweets)
 

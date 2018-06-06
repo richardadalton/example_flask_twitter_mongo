@@ -9,7 +9,10 @@
 <body>
     
     <form action="/results">
-        <input type="text" name="search"/>
+        <input type="text" name="search" placeholder="Tweets about..."/>
+        <input type="number" name="how_many" placeholder="How Many..."/></br>
+        <input type="radio" name="tweet_type" value="search" checked> Search
+        <input type="radio" name="tweet_type" value="stream"> Stream<br>
         <input type="submit" value="Submit"/>
     </form>
     
