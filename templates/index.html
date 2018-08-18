@@ -5,16 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+     
 </head>
 <body>
+
+    <div class="container">
+    <h1>Tweet2Mongo</h1>
     
-    <form action="/results">
-        <input type="text" name="search" placeholder="Tweets about..."/>
-        <input type="number" name="how_many" placeholder="How Many..."/></br>
-        <input type="radio" name="tweet_type" value="search" checked> Search
-        <input type="radio" name="tweet_type" value="stream"> Stream<br>
-        <input type="submit" value="Submit"/>
+    <div class="search-form">
+          <form action="/results">
+        <div class="row">
+            <div class="input-field col s6">
+              <label class="active" for="id_search">Search For...</label>
+              <input type="text" placeholder="Tweets about..." name="search" class="validate" id="id_search">
+            </div>
+            
+            <div class="input-field col s6">
+              <label class="active" for="id_how_many">How Many...</label>
+              <input type="number" value="10" name="how_many" class="validate" id="id_how_many">
+            </div>
+        </div>
+        
+        <div class="row">
+            <label>
+                <input name="tweet_type" type="radio" value="search" checked />
+                <span>Search</span>
+            </label>
+    
+            <label>
+                <input name="tweet_type" type="radio" value="stream" />
+                <span>Stream</span>
+            </label>
+        </div>
+        
+        <input type="submit" value="Get Tweets"/>
     </form>
+    </div>
+    
+    {% if tweets %}
+
+      {%for tweet in tweets%}
+        
+      <div class="search-form">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="{{ tweet.user.profile_image_url_https }}">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+            <p>{{ tweet.text }}</p>
+            </div>
+            <div class="card-action">
+              <a href="https://twitter.com/statuses/{{ tweet.id }}">View Original</a>
+            </div>
+          </div>
+        </div>
+      </div>  
+        
+      {%endfor%}
+
+    {% endif %}
+    
+    </div>
     
 </body>
 </html>
