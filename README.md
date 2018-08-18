@@ -1,7 +1,3 @@
-![flask logo](https://github.com/richardadalton/example_flask_twitter_mongo/blob/master/resources/flask-logo.png?raw=true)
-
-![twitter logo](https://github.com/richardadalton/example_flask_twitter_mongo/blob/master/resources/twitter-logo.jpg?raw=true)
-
 ![mongo logo](https://github.com/richardadalton/example_flask_twitter_mongo/blob/master/resources/mongo-logo.jpg?raw=true)
 
 # Flask/Twitter/Mongo Example
@@ -12,7 +8,7 @@ The results are stored in Mongo, subsequent queries for the same keyword pull fr
 
 The site is build using the python flask framework.
 
-## Installation
+## Installation
 1. git clone this repo.
 
 2. sudo pip3 install -r requirements.txt
