@@ -1,6 +1,6 @@
-![flask logo](https://github.com/richardadalton/example-flask-twitter-mongo/blob/master/resources/flask-logo.png?raw=true)
-![twitter logo](https://github.com/richardadalton/example-flask-twitter-mongo/blob/master/resources/twitter-logo.jpg?raw=true)
-![mongo logo](https://github.com/richardadalton/example-flask-twitter-mongo/blob/master/resources/mongo-logo.jpg?raw=true)
+![flask logo](https://github.com/richardadalton/example_flask_twitter_mongo/blob/master/resources/flask-logo.png?raw=true)
+![twitter logo](https://github.com/richardadalton/example_flask_twitter_mongo/blob/master/resources/twitter-logo.jpg?raw=true)
+![mongo logo](https://github.com/richardadalton/example_flask_twitter_mongo/blob/master/resources/mongo-logo.jpg?raw=true)
 
 # Flask/Twitter/Mongo Example
 
@@ -12,13 +12,13 @@ The site is build using the python flask framework.
 
 ## Installation
 
-### git clone this repo.
+1. git clone this repo.
 
-### sudo pip3 install -r requirements.txt
+2. sudo pip3 install -r requirements.txt
 
-### Create a mongo database, e.g. on mlab.com
+3. Create a mongo database, e.g. on mlab.com
 
-### Create environment variables for twitter credentials and mongo uri.
+4. Create environment variables for twitter credentials and mongo uri.
 
 * CONSUMER_KEY
 * CONSUMER_SECRET
